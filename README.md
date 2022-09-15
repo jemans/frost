@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> Framework for building PHP sites with login
+> Framework for building PHP sites with login system.
 
 ## Code Samples
 
