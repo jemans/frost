@@ -84,16 +84,18 @@
             $pf = $this->password[1];
             
 
-            $result = mysqli_query($this->dbLink, "SELECT * FROM $this->dbTable WHERE $ef='$e' && $pf='$p'");
+            $result = mysqli_query($this->dbLink, "SELECT * FROM $this->dbTable WHERE $ef='$e' OR $uf='$u' && $pf='$p'");
 
             while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
             {
-                $_SESSION['user'] = $row[$uf];
-                $_SESSION['isAuth']= true;
+                if($u == $row[$uf] || $e == $row[$ef] && $p == $row[$pf])
+                {
+                    $_SESSION['user'] = $row[$uf];
+                    $_SESSION['isAuth']= true;
+                }
             }
             
         }
-
 
         function logout()
         {
